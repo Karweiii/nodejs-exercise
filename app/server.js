@@ -28,13 +28,13 @@ let port = process.env.PORT || 3000;
     app.get("*", (req, res) =>
         res
             .status(200)
-            .send({ success: true, message: "This is where it all starts!!!" })
+            .send({ success: true, message: "Hello world!" })
     );
     
 
     app.listen(port, () => {
         console.log(
-            `Express Mikro-ORM tutorial listening at http://localhost:${port}`
+            `Introduction to Nodejs with Express + MikroORM + MySQL http://localhost:${port}`
         );
     });
 })();
