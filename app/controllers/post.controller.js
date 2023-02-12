@@ -15,6 +15,7 @@ const router = Router();
 
 const PostController = (DI) => {
     router.post("/", async (req, res) => {
+        console.log('POST - Create a new post')
         const { title, author, content } = req.body;
         if (!title || !author || !content) {
             return res.status(400).send({
@@ -34,6 +35,7 @@ const PostController = (DI) => {
     });
 
     router.get("/", async (req, res) => {
+        console.log('GET - Fetch all posts')
         try {
             const posts = await DI.postRepository.findAll()
 
@@ -53,11 +55,11 @@ const PostController = (DI) => {
         } catch (error) {
             return res.status(400).send({ success: false, message: e.message });
         }
-
-
     })
 
     router.patch("/:id", async (req, res) => {
+        console.log('PATCH - Update a specific post')
+
         try {
             const id = req.params.id
             const { title, author, content } = req.body;
@@ -86,6 +88,8 @@ const PostController = (DI) => {
     })
 
     router.delete("/:id", async (req, res) => {
+        console.log('DELETE - Delete a specific post')
+
         try {
             const id = req.params.id
 
@@ -112,6 +116,8 @@ const PostController = (DI) => {
     })
 
     router.get("/:id", async (req, res) => {
+        console.log('GET - Fetch a specific post')
+
         const id = req.params.id
 
         try {
