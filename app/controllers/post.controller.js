@@ -34,6 +34,7 @@ const PostController = (DI) => {
     });
 
     router.get("/", async (req, res) => {
+        console.log("Get Request Started")
         try {
             const posts = await DI.postRepository.findAll()
 
